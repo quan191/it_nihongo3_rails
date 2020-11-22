@@ -1,5 +1,6 @@
+<%= render 'layouts/navbar' %>
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
-
 <h1>Books</h1>
 
 <table>
@@ -27,3 +28,4 @@
 <br>
 
 <%= link_to 'New Book', new_book_path %>
+<% end %>
