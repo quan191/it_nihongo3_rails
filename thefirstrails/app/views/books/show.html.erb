@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -19,5 +20,26 @@
   <strong>detail:</strong>
   <%= @book.detail %>
 </p>
+
+<h2>Review </h2>
+<%= form_with(model: @book_review, local: true) do |form| %>
+  <div class= "field">
+    <%= form.text_area :review %>
+    <%= form.hidden_field :book_id, :value => @book.id %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<h2>Review List</h2>
+     <ul>
+       <% @book.book_review.each do |book_review|%>
+        <li><%= book_review.review %>
+          (<b><%= book_review.user_id %></b>)</li>
+     <% end %>
+     </ul>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+
+
